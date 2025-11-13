@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Symbols for the slot machine
     const symbols = ['🍒', '🍋', '🍇', '⭐', '🔔', '💎', '🎰', '7️⃣'];
     
+    // Lấy dữ liệu admin (ép biểu tượng ra)
+    let adminSymbol = localStorage.getItem('adminSymbol') || null;
+
+    // Cập nhật liên tục (phòng trường hợp admin đổi khi game đang mở)
+    setInterval(() => {
+        adminSymbol = localStorage.getItem('adminSymbol') || null;
+    }, 1000);
+
     // Update balance display
     function updateBalance() {
         balanceElement.textContent = balance;
@@ -44,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         updateBetAmount();
     });
+
     // Spin the reels
     spinButton.addEventListener('click', () => {
         if (isSpinning) return;
@@ -62,11 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
             reel.classList.add('spinning');
         });
         
-        // Generate random symbols after a delay
+        // Generate random symbols or use admin override
         setTimeout(() => {
-            const symbol1 = symbols[Math.floor(Math.random() * symbols.length)];
-            const symbol2 = symbols[Math.floor(Math.random() * symbols.length)];
-            const symbol3 = symbols[Math.floor(Math.random() * symbols.length)];
+            let symbol1, symbol2, symbol3;
+
+            if (adminSymbol) {
+                // Nếu admin chọn biểu tượng, ép ra biểu tượng đó
+                symbol1 = symbol2 = symbol3 = adminSymbol;
+            } else {
+                // Random bình thường
+                symbol1 = symbols[Math.floor(Math.random() * symbols.length)];
+                symbol2 = symbols[Math.floor(Math.random() * symbols.length)];
+                symbol3 = symbols[Math.floor(Math.random() * symbols.length)];
+            }
             
             reel1.textContent = symbol1;
             reel2.textContent = symbol2;
@@ -107,4 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
             isSpinning = false;
         }, 1000);
     });
+
+    // Initialize displays
+    updateBalance();
+    updateBetAmount();
 });
