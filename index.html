@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine Royale 🎰</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-900 to-indigo-800 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold text-yellow-400 mb-2 drop-shadow-lg">Slot Machine Royale 🎰</h1>
+            <p class="text-xl text-white">Spin to win big!</p>
+        </header>
+
+        <div class="bg-gray-900 rounded-3xl shadow-2xl p-6 md:p-8 border-4 border-yellow-500">
+            <!-- Balance and Controls -->
+            <div class="flex justify-between items-center mb-8">
+                <div class="bg-gray-800 rounded-xl p-4 border-2 border-yellow-600">
+                    <p class="text-gray-400 text-sm">BALANCE</p>
+                    <p id="balance" class="text-2xl font-bold text-yellow-400">$1000</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <button id="bet-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition transform hover:scale-105 active:scale-95">
+                        BET: $<span id="bet-amount">10</span>
+                    </button>
+                    <button id="spin-btn" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-bold transition transform hover:scale-105 active:scale-95 flex items-center">
+                        <i data-feather="rotate-cw" class="mr-2"></i> SPIN
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slot Machine -->
+            <div class="bg-gray-800 rounded-2xl p-6 mb-8 border-4 border-yellow-600">
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="slot-reel bg-gray-700 rounded-xl h-48 flex items-center justify-center border-4 border-yellow-500">
+                        <span id="reel1" class="text-6xl">🍒</span>
+                    </div>
+                    <div class="slot-reel bg-gray-700 rounded-xl h-48 flex items-center justify-center border-4 border-yellow-500">
+                        <span id="reel2" class="text-6xl">🍋</span>
+                    </div>
+                    <div class="slot-reel bg-gray-700 rounded-xl h-48 flex items-center justify-center border-4 border-yellow-500">
+                        <span id="reel3" class="text-6xl">🍇</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Win Message -->
+            <div id="win-message" class="text-center mb-6 hidden">
+                <p class="text-2xl font-bold text-yellow-400 animate-pulse">JACKPOT! YOU WIN $<span id="win-amount">0</span>!</p>
+            </div>
+
+            <!-- Paytable -->
+            <div class="bg-gray-800 rounded-2xl p-6 border-2 border-yellow-600">
+                <h2 class="text-xl font-bold text-yellow-400 mb-4">Paytable</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">🍒</span>
+                        <span class="text-white">3x = $20</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">🍋</span>
+                        <span class="text-white">3x = $30</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">🍇</span>
+                        <span class="text-white">3x = $40</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">⭐</span>
+                        <span class="text-white">3x = $100</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">🔔</span>
+                        <span class="text-white">3x = $150</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">💎</span>
+                        <span class="text-white">3x = $200</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">🎰</span>
+                        <span class="text-white">3x = $500</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">7️⃣</span>
+                        <span class="text-white">3x = JACKPOT!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-8 text-gray-400">
+            <p>Spin responsibly. This is a demo game only.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>

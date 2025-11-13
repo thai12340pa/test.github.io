@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    overflow-x: hidden;
+}
+
+.slot-reel {
+    transition: transform 0.1s ease-in-out;
+}
+
+.slot-reel.spinning {
+    animation: spin 0.1s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+.win-animation {
+    animation: winPulse 1s infinite;
+}
+
+@keyframes winPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slot-reel {
+        height: 120px !important;
+    }
+    
+    .slot-reel span {
+        font-size: 3rem !important;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+}

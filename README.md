@@ -1,7 +1,7 @@
 ---
-title: 2048 Game Master 🎮
-colorFrom: red
-colorTo: green
+title: Slot Machine Royale 🎰
+colorFrom: purple
+colorTo: pink
 emoji: 🐳
 sdk: static
 pinned: false
