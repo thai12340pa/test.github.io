@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
             betAmount = 50;
         } else if (betAmount === 50) {
             betAmount = 100;
+         } else if (betAmount === 100) {
+            betAmount = 10000;
+        {
         } else {
             betAmount = 10;
         }
